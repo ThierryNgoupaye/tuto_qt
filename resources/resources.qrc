@@ -1,0 +1,11 @@
+<!-- resources/resources.qrc -->
+<RCC>
+    <qresource prefix="/">
+        <file>images/cover.jpg</file>
+        <file>icons/play-button.png</file>
+        <file>icons/accueil.png</file>
+        <file>icons/musique.png</file>
+        <file>icons/settings.png</file>
+        <file>icons/star.png</file>
+    </qresource>
+</RCC>
