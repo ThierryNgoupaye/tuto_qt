@@ -16,7 +16,7 @@ class TutoQStackedWidget : public QWidget {
 
     Q_OBJECT
     QStackedWidget * stack;
-    QVBoxLayout* layout;
+    QVBoxLayout* m_layout;
     QList<QWidget*> pages;
 
     public:

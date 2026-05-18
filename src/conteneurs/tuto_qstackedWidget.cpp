@@ -9,11 +9,11 @@
 
 TutoQStackedWidget::TutoQStackedWidget(const QList<QWidget*>& m_pages, QWidget *parent) : QWidget(parent){
 
-    this->layout = new QVBoxLayout(this);
+    this->m_layout = new QVBoxLayout(this);
     this->stack = new QStackedWidget(this);
     this->pages = m_pages;
 
-    layout->addWidget(stack);
+    m_layout->addWidget(stack);
 
     for (const auto page : pages) {
         this->stack->addWidget(page);

@@ -23,15 +23,16 @@
 #include  "headers/Conteneurs/tuto_qtabWidget.h"
 #include "headers/mini-projets/tabWidget_app.h"
 #include "headers/mini-projets/sidebar_app.h"
+#include "headers/mini-projets/musical_card/musical_card_app.h"
 
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    SidebarApp mainWindow("Sidebar App");
+    MusicalCardApp mainWindow;
 
     mainWindow.show();
 
 
-    return app.exec();
+    return QApplication::exec();
 }
