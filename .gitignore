@@ -54,3 +54,15 @@ compile_commands.json
 *creator.user*
 
 *_qmlcache.qrc
+
+
+# IDE
+.idea
+.vscode
+
+cmake-build-debug
+build
+repomix-out.xml
+project_context.txt
+
+*.log
