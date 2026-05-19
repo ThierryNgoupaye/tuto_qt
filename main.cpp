@@ -21,6 +21,7 @@
 #include "headers/Qwidgets/tuto_qcomboBox.h"
 #include "headers/Qwidgets/tuto_qprogressBar.h"
 #include  "headers/Conteneurs/tuto_qtabWidget.h"
+#include "headers/mini-projets/code_editor.h"
 #include "headers/mini-projets/tabWidget_app.h"
 #include "headers/mini-projets/sidebar_app.h"
 #include "headers/mini-projets/musical_card/musical_card_app.h"
@@ -29,10 +30,11 @@
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    MusicalCardApp mainWindow;
+    CodeEditorApp mainWindow;
 
     mainWindow.show();
 
 
     return QApplication::exec();
 }
+

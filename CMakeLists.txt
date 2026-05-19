@@ -50,6 +50,12 @@ add_executable(qt_tuto main.cpp
         src/mini-projets/musical_card/musical_card_app.cpp
         headers/mini-projets/musical_card/musical_card.h
         src/mini-projets/musical_card/musical_card.cpp
+        headers/Conteneurs/tuto_qsplitter.h
+        src/conteneurs/tuto_qsplitter.cpp
+        headers/mini-projets/code_editor.h
+        src/mini-projets/code_editor.cpp
+        headers/mini-projets/panneau.h
+        src/mini-projets/panneau.cpp
 )
 target_link_libraries(qt_tuto
         Qt::Core
