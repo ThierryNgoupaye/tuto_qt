@@ -62,7 +62,7 @@ compile_commands.json
 
 cmake-build-debug
 build
-repomix-out.xml
+repomix-output.xml
 project_context.txt
 
 *.log

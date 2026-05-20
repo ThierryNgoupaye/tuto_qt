@@ -2,11 +2,11 @@
 // Created by thierry on 19/05/2026.
 //
 
-#include "../../headers/mini-projets/code_editor.h"
+#include "../../../headers/mini-projets/code_editor/code_editor.h"
 
 #include <QStatusBar>
 
-#include "../../headers/mini-projets/panneau.h"
+#include "../../../headers/mini-projets/code_editor/panneau.h"
 
 
 CodeEditorApp::CodeEditorApp(QWidget *parent) : QMainWindow(parent) {

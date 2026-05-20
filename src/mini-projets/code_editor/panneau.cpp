@@ -2,7 +2,7 @@
 // Created by thierry on 19/05/2026.
 //
 
-#include "../../headers/mini-projets/panneau.h"
+#include "../../../headers/mini-projets/code_editor/panneau.h"
 
 
 Panneau::Panneau(const QString &title, QWidget *content, QWidget *parent) : QWidget (parent) {

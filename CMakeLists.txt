@@ -18,8 +18,6 @@ add_executable(qt_tuto main.cpp
         resources/resources.qrc
         src/main_window.cpp
         headers/main_window.h
-        src/CustomButton.cpp
-        headers/CustomButton.h
         headers/Qwidgets/tuto_qlabel.h
         src/qwidgets/tuto_qlabel.cpp
         headers/Qwidgets/tuto_qpushButton.h
@@ -52,10 +50,28 @@ add_executable(qt_tuto main.cpp
         src/mini-projets/musical_card/musical_card.cpp
         headers/Conteneurs/tuto_qsplitter.h
         src/conteneurs/tuto_qsplitter.cpp
-        headers/mini-projets/code_editor.h
-        src/mini-projets/code_editor.cpp
-        headers/mini-projets/panneau.h
-        src/mini-projets/panneau.cpp
+        headers/mini-projets/code_editor/code_editor.h
+        src/mini-projets/code_editor/code_editor.cpp
+        headers/mini-projets/code_editor/panneau.h
+        src/mini-projets/code_editor/panneau.cpp
+        headers/mini-projets/aurora-skeleton/aurora_skeleton.h
+        src/mini-projets/aurora-skeleton/aurora_skeleton.cpp
+        headers/mini-projets/aurora-skeleton/pages/home_page.h
+        headers/mini-projets/aurora-skeleton/pages/library_page.h
+        headers/mini-projets/aurora-skeleton/pages/star_page.h
+        headers/mini-projets/aurora-skeleton/components/playerbar.h
+        headers/mini-projets/aurora-skeleton/components/topbar.h
+        headers/mini-projets/aurora-skeleton/components/sidebar.h
+        src/mini-projets/aurora-skeleton/components/sidebar.cpp
+        src/mini-projets/aurora-skeleton/components/topbar.cpp
+        src/mini-projets/aurora-skeleton/components/playerbar.cpp
+        src/mini-projets/aurora-skeleton/pages/home_page.cpp
+        src/mini-projets/aurora-skeleton/pages/star_page.cpp
+        src/mini-projets/aurora-skeleton/pages/library_page.cpp
+        headers/mini-projets/aurora-skeleton/components/main_content.h
+        src/mini-projets/aurora-skeleton/components/main_content.cpp
+        headers/mini-projets/aurora-skeleton/pages/settings_page.h
+        src/mini-projets/aurora-skeleton/pages/settings_page.cpp
 )
 target_link_libraries(qt_tuto
         Qt::Core

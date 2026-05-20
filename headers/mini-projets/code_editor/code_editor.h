@@ -10,7 +10,7 @@
 #include <QListWidget>
 #include <QTextEdit>
 
-#include "../Conteneurs/tuto_qsplitter.h"
+#include "../../Conteneurs/tuto_qsplitter.h"
 
 
 class CodeEditorApp : public QMainWindow {

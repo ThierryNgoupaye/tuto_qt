@@ -4,7 +4,7 @@
 
 #include "../../headers/mini-projets/sidebar_app.h"
 
-#include "../../headers/CustomButton.h"
+#include <QPushButton>
 #include <QKeySequence>
 #include <QShortcut>
 #include <QStatusBar>
@@ -64,6 +64,7 @@ SidebarApp::SidebarApp(const QString& title, QWidget *parent) : QMainWindow(pare
         pageList.append(creerPage(titre, couleur, this));
 
 
+        // ReSharper disable once CppDFAMemoryLeak
         const auto navBtn = new QPushButton(QIcon(iconPath), label, m_sidebar);
         navBtn->setIconSize(QSize(24,24));
         navBtn->setFlat(true);
@@ -104,6 +105,8 @@ SidebarApp::SidebarApp(const QString& title, QWidget *parent) : QMainWindow(pare
     m_sidebarLayout->addStretch();
 
     for (std::size_t i = 0; i < pageList.size(); ++i) {
+
+        // ReSharper disable once CppDFAMemoryLeak
         const auto* shortcut = new QShortcut(
                 QKeySequence(Qt::CTRL | static_cast<Qt::Key>(Qt::Key_1 + i)),
                 this
@@ -148,9 +151,16 @@ void SidebarApp::onPageChanged(const int index) const {
 
 
 QWidget* SidebarApp::creerPage(const QString& texte, const QString& couleur, QWidget* parent) {
+
+    // ReSharper disable once CppDFAMemoryLeak
     const auto page = new QWidget(parent);
+
+    // ReSharper disable once CppDFAMemoryLeak
     const auto layout = new QVBoxLayout(page);
+
+    // ReSharper disable once CppDFAMemoryLeak
     const auto label = new QLabel(texte, page);
+
     page->setStyleSheet(QString("background-color: %1;").arg(couleur));
     label->setAlignment(Qt::AlignCenter);
     label->setStyleSheet("font-size: 26px; font-weight: bold; color: #333;");
