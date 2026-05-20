@@ -15,7 +15,7 @@ class AudioEngine : public QObject {
     int m_volume {50};
     int m_position {0};
     bool m_playing {false};
-    QTimer m_positionTimer;
+    QTimer* m_positionTimer {nullptr};
 
     public:
         explicit AudioEngine(QObject *parent = nullptr);
@@ -36,6 +36,7 @@ class AudioEngine : public QObject {
         void setVolume(int volume);
         void seek(int positionMs);
         void loadTrack(const QString& title, int durationMs);
+        void initialize();
 };
 
 

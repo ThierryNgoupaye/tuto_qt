@@ -75,9 +75,11 @@ add_executable(qt_tuto main.cpp
         headers/mini-projets/audio-system/audio_engine.h
         headers/mini-projets/audio-system/player_ui.h
         headers/mini-projets/audio-system/audio_engine_app.h
-        src/mini-projets/audio-syste,/audio_engine.cpp
-        src/mini-projets/audio-syste,/audio_engine_app.cpp
-        src/mini-projets/audio-syste,/player_ui.cpp
+        src/mini-projets/audio-engine/audio_engine.cpp
+        src/mini-projets/audio-engine/audio_engine_app.cpp
+        src/mini-projets/audio-engine/player_ui.cpp
+        headers/mini-projets/audio-system/worker_simulator.h
+        src/mini-projets/audio-engine/worker_simulator.cpp
 )
 target_link_libraries(qt_tuto
         Qt::Core

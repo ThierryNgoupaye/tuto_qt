@@ -2,9 +2,10 @@
 // Created by thierry on 20/05/2026.
 //
 
+#include <QStatusBar>
+#include <QThread>
 
 #include "../../../headers/mini-projets/audio-system/player_ui.h"
-#include <QStatusBar>
 
 PlayerUI::PlayerUI(QWidget *parent) : QMainWindow(parent) {
 
@@ -67,42 +68,59 @@ PlayerUI::PlayerUI(QWidget *parent) : QMainWindow(parent) {
     m_volumeRow->addWidget(m_volumeLabel);
     m_volumeRow->addWidget(m_volumeSlider);
 
+
+    // Gestion de la tache lourde
+    // ReSharper disable once CppDFAMemoryLeak
+    auto* taskRow = new QHBoxLayout();
+    m_scanBtn = new QPushButton("🔍  Scanner bibliothèque", m_central);
+    m_scanBtn->setFixedHeight(32);
+    m_taskProgress = new QProgressBar(m_central);
+    m_taskProgress->setRange(0,100);
+    m_taskProgress->setValue(0);
+    m_taskProgress->setTextVisible(true);
+    m_taskProgress->setVisible(false);
+    taskRow->addWidget(m_scanBtn);
+    taskRow->addWidget(m_taskProgress, 1);
+
+
+    // Assemblage
     m_layout->addWidget(m_trackSelector);
     m_layout->addWidget(m_trackLabel);
-
     m_layout->addLayout(m_progressRow);
     m_layout->addLayout(m_volumeRow);
     m_layout->addLayout(m_ctrlRow);
+    m_layout->addLayout(taskRow);
 
 
     m_statusLabel = new QLabel("Pret");
     statusBar()->addWidget(m_statusLabel);
 
 
+
+    // Cablages internes au PlayerUI
     connect(m_loadBtn, &QPushButton::clicked, this, [this] {
             const QString title = m_trackSelector->currentText();
             const int duration = m_trackSelector->currentData().toInt();
         emit trackLoadRequested(title, duration);
         }
     );
-
     connect(m_playBtn, &QPushButton::clicked, this, [this] {
             if (m_isPlaying) emit pauseRequested();
             else emit playRequested();
         }
     );
-
     connect(m_stopBtn, &QPushButton::clicked, this, &PlayerUI::stopRequested);
-
-
     connect(m_progressSlider, &QSlider::sliderReleased, this, [this] {
             emit seekRequested(m_progressSlider->value());
         }
     );
-
     connect(m_volumeSlider, &QSlider::valueChanged, this,  &PlayerUI::volumeRequested);
-
+    connect(m_scanBtn, &QPushButton::clicked, this, [this] {
+            emit heavyTaskRequested("Scan bibliothèque musicale");
+        }
+    );
 }
+
 
 
 void PlayerUI::onPlaybackStarted() {
@@ -168,3 +186,25 @@ QString PlayerUI::formatDuration(const int duration)  {
     .arg(sec, 2, 10, QChar('0'));
 }
 
+
+void PlayerUI::onTaskStarted(const QString& task) const {
+    m_taskProgress->setVisible(true);
+    m_taskProgress->setValue(0);
+    m_scanBtn->setEnabled(false);
+    m_statusLabel->setText("⏳ " + task + " en cours...");
+    qDebug() << "[PlayerUI] tâche démarrée (thread UI) :" << QThread::currentThreadId();
+}
+
+
+void PlayerUI::onProgressUpdated(const int percent) const {
+    m_taskProgress->setValue(percent);
+}
+
+
+void PlayerUI::onTaskFinished(const QString& task) const {
+    m_taskProgress->setValue(100);
+    m_scanBtn->setEnabled(true);
+    m_statusLabel->setText("✅ " + task + " terminé !");
+    qDebug() << "[PlayerUI] tâche terminée (thread UI) :" << QThread::currentThreadId();
+
+}

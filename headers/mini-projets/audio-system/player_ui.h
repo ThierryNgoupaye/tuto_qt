@@ -13,6 +13,7 @@
 #include <QStatusBar>
 #include <QComboBox>
 #include <QMainWindow>
+#include <QProgressBar>
 
 
 class PlayerUI : public QMainWindow {
@@ -44,6 +45,9 @@ class PlayerUI : public QMainWindow {
     bool m_isPlaying {false};
     int m_duration {0};
 
+    QProgressBar* m_taskProgress {nullptr};
+    QPushButton* m_scanBtn {nullptr};
+
 
     public:
         explicit PlayerUI(QWidget* parent = nullptr);
@@ -55,6 +59,7 @@ class PlayerUI : public QMainWindow {
         void volumeRequested(int volume);
         void seekRequested(int positionMs);
         void trackLoadRequested(const QString& title, int duration);
+        void heavyTaskRequested(const QString& task);
 
 
     public slots:
@@ -65,6 +70,9 @@ class PlayerUI : public QMainWindow {
         void onPositionChanged(int positionMs) const;
         void onTrackLoaded(const QString& title, int durationMs);
         void onErrorOccurred(const QString& message) const;
+        void onTaskStarted(const QString& task) const;
+        void onProgressUpdated(int percent) const;
+        void onTaskFinished(const QString& task) const;
 
 
     private:

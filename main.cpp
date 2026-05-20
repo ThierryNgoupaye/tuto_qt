@@ -10,8 +10,8 @@
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    PlayerUI* ui = startAudioEngineApp();
-    ui->show();
+     const AudioEngineApp audioEngineApp;
+     audioEngineApp.show();
 
     return QApplication::exec();
 }
