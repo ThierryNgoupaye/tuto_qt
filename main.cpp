@@ -1,15 +1,17 @@
 #include <QApplication>
-#include "headers/Qwidgets/tuto_qlabel.h"
-#include "headers/mini-projets/aurora-skeleton/aurora_skeleton.h"
+
+
+#include "headers/mini-projets/audio-system/audio_engine_app.h"
+
+
 
 
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    AuroraSkeletonApp mainWindow;
-
-    mainWindow.show();
+    PlayerUI* ui = startAudioEngineApp();
+    ui->show();
 
     return QApplication::exec();
 }

@@ -72,6 +72,12 @@ add_executable(qt_tuto main.cpp
         src/mini-projets/aurora-skeleton/components/main_content.cpp
         headers/mini-projets/aurora-skeleton/pages/settings_page.h
         src/mini-projets/aurora-skeleton/pages/settings_page.cpp
+        headers/mini-projets/audio-system/audio_engine.h
+        headers/mini-projets/audio-system/player_ui.h
+        headers/mini-projets/audio-system/audio_engine_app.h
+        src/mini-projets/audio-syste,/audio_engine.cpp
+        src/mini-projets/audio-syste,/audio_engine_app.cpp
+        src/mini-projets/audio-syste,/player_ui.cpp
 )
 target_link_libraries(qt_tuto
         Qt::Core
