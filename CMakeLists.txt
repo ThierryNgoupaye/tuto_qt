@@ -82,6 +82,8 @@ add_executable(qt_tuto main.cpp
         src/mini-projets/audio-engine/worker_simulator.cpp
         headers/mini-projets/menu-explorer/menu_explorer.h
         src/mini-projets/menu-explorer/menu_explorer.cpp
+        headers/mini-projets/form-dock/form_dock_app.h
+        src/mini-projets/form-dock/form_dock_app.cpp
 )
 target_link_libraries(qt_tuto
         Qt::Core
