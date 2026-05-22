@@ -84,6 +84,8 @@ add_executable(qt_tuto main.cpp
         src/mini-projets/menu-explorer/menu_explorer.cpp
         headers/mini-projets/form-dock/form_dock_app.h
         src/mini-projets/form-dock/form_dock_app.cpp
+        headers/mini-projets/file-explorer/file_explorer.h
+        src/mini-projets/file-explorer/file_explorer.cpp
 )
 target_link_libraries(qt_tuto
         Qt::Core
